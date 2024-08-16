@@ -1,0 +1,110 @@
+.Register-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+.Register-box{
+    width: 50vw;
+    height: 80vh;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    text-align: left;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+}
+.Filled{
+    width:65% ;
+    height: 96%;
+    background-color: white;
+    margin-top: 15px;
+}
+.Pic{
+ margin-left: 10px;
+    width: 32%;
+    height: 96%;
+    background-color: white;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    
+    
+}
+.title{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.Logo{
+    color: #4285f4;
+}
+.Input1 , Input2{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 16px;
+}
+.Input1 TextField, .Input3 TextField{
+    width: 20%;
+    padding: 10px;
+    margin-right: 5%;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+.Input2 TextField{
+    width: 31vw;
+    margin-top: 10px;
+}
+.Input2 {
+    
+    margin-top: 25px;
+}
+.Input3{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 16px;
+    margin-top: 40px;
+}
+ TextField{
+    width: 48%;
+    padding: 10px;
+    margin-right: 6px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+}
+.user{
+    width: 31vw;
+}
+.UserText, .PasswordText{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 10px;
+   font-weight: bold;
+}
+.EmailText{
+    font-size: 12px;
+}
+FormControlLabel{
+    font-weight: 10px;
+}
+.Signup{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding-top: 45px;
+}
+img{
+    width: 12vw;
+    height: 20vh;
+    margin-top: 175px;
+}
+p{
+    font-size: 12px;
+}
