@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import Register from './Pages/Register';
-// import Login from './Pages/Login';
-// import Router from './Routes/Router';
+import Login from './Pages/Login';
+import Router from './Routes/Router';
+import SignUp from './Pages/SignUp';
+import Dashboard from './Components/Dashboard';
 
 function App() {
   // const name = "Hello"
@@ -13,8 +15,11 @@ function App() {
   return (
   
     <div className="App">
-      <Register ></Register>
-  
+      <Router/>
+{/*     
+      <Login></Login> */}
+      {/* <SignUp/> */}
+      {/* <Dashboard/> */}
     </div>
   );
 }

@@ -21,7 +21,7 @@
     width:65% ;
     height: 96%;
     background-color: white;
-    margin-top: 15px;
+    margin-top: -20px;
 }
 .Pic{
  margin-left: 10px;
@@ -47,7 +47,7 @@
     margin-bottom: 15px;
     display: flex;
     justify-content: space-around;
-    padding-right: 16px;
+    padding-right: 15px;
 }
 .Input1 TextField, .Input3 TextField{
     width: 20%;
@@ -98,7 +98,7 @@ FormControlLabel{
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding-top: 45px;
+    padding-top: 25px;
 }
 img{
     width: 12vw;

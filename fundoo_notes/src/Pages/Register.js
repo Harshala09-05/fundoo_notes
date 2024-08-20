@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import '../Style/Register.css';
+
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import GoogleImage from '../Assets/Google.png';
 
 export default function Register() {
-  const NameRegex = "/^[A-ZÀ-ÿ][-,a-z. ']+[ ]*)+";
+  const nameRegex = "/^[A-ZÀ-ÿ][-,a-z. ']+[ ]*)+";
   // const userName = "[A-Za-z][A-Za-z0-9_]{7,29}$";
   // const Password = "[a-zA-Z0-9!@#$%^&*]{6,16}$";
   const [formData, setformData] = useState({
@@ -21,31 +21,31 @@ export default function Register() {
     confirm: "",
   });
   const [showPassword, setPassword] = useState(false);
-  const [formErrors, setformErrors] = React.useState({
+  const [formErrors, setformErrors] = useState({
     firstNameTrue: false,
     firstNameError: "Required firstName",
   });
 }
 
 const handleChange = (e) => {
-  setformData({
-    ...formData,
-    [e.target.name]: value
-  })
+//     setformData({
+//     ...formData,
+//     [e.target.firstName]: value
+//   })
 }
 const submit = (e) => {
   e.preventDefault();
-  let firstNameCheck = NameRegex.test(formData.firstName);
+//   let firstNameCheck = nameRegex.test(formData.firstName);
   // let lastNameCheck = NameRegex.test(formData.lastName);
   // let userNameCheck = NameRegex.test(formData.userName);
   // let passwordCheck = NameRegex.test(formData.password);
   // let confirmCheck = NameRegex.test(formData.confirm);
-  if (firstNameCheck == false) {
-    setformErrors({
-      firstNameTrue: true,
-      firstNameError:"It's not valid"
-    })
-  }
+//   if (firstNameCheck == false) {
+//     setformErrors({
+//       firstNameTrue: true,
+//       firstNameError:"It's not valid"
+//     })
+//   }
 
 
   //  const {abc, childToParent} = props
@@ -66,11 +66,11 @@ const submit = (e) => {
             </h3>
           </div>
           <div className="Input1">
-            <TextField require id="outlined-required" label="Required" placeholder='First Name' name="firstName" value={formData.firstName} onChange={(e)=>handleChange(handleChange)}></TextField>
-            <TextField require id="outlined-required" label="Required" placeholder='Last Name' value={formData.lastName} onChange={handleChange}></TextField>
+            <TextField require id="outlined-required" label="Required" placeholder='First Name' name="firstName"  onChange={(e)=>handleChange(handleChange)}></TextField>
+            <TextField require id="outlined-required" label="Required" placeholder='Last Name'  onChange={handleChange}></TextField>
           </div>
           <div className="Input2">
-            <TextField className='user' require id="outlined-required" label="Required" placeholder='Username' defaultValue="" value={formData.userName} onChange={handleChange}></TextField>
+            <TextField className='user' require id="outlined-required" label="Required" placeholder='Username' defaultValue="" onChange={handleChange}></TextField>
             <span className="UserText">
               you can use letters,numbers & periods
             </span>
@@ -80,8 +80,8 @@ const submit = (e) => {
           </div>
           <div>
           <div className="Input3">
-              <TextField require id="outlined-required" label="Required" placeholder='Password*' defaultValue="" value={formData.password} onChange={handleChange}></TextField>
-          <TextField require id="outlined-required" label="Required"  placeholder='Confirm*'defaultValue=""value={formData.confirm} onChange={handleChange}></TextField>
+              <TextField require id="outlined-required" label="Required" placeholder='Password*' defaultValue=""  onChange={handleChange}></TextField>
+          <TextField require id="outlined-required" label="Required"  placeholder='Confirm*'defaultValue="" onChange={handleChange}></TextField>
           </div>
             <span className="PasswordText">
               Use 8 or more characters with a mix of letters, numbers & symbols
