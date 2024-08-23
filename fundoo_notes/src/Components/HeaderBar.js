@@ -13,6 +13,8 @@ const Header = styled(AppBar)`
 `;
 const Heading = styled(Typography)`
     color: #5F6368;
+    font-size: 24px;
+    margin-left:25px;
 `;
 
 export default function HeaderBar({ open, handleDrawer }) {
@@ -27,7 +29,7 @@ export default function HeaderBar({ open, handleDrawer }) {
         >
           <MenuIcon />
               </IconButton>
-        <img src={logo} alt="logo" style={{ width: 30 }}></img>
+        <img src={logo} alt="logo" style={{ width: 27, height: 50 , marginTop: 1 }}></img>
         <Heading>
           Keep
         </Heading>

@@ -4,35 +4,32 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import {LightbulbOutlined as Lightbulb,ArchiveOutlined as Archive,DeleteOutlined as Delete} from '@mui/icons-material';
 import List from '@mui/material/List';
+// import { Link } from 'react-router-dom';
 
 
-export default function NavList({open, handleDrawer}) {
+
+export default function NavList({ open, handleDrawer }) {
+  const NavList = [
+    { id: 1, name: 'Notes', icon: <Lightbulb /> },
+    { id: 1, name: 'Archive', icon: <Archive/> },
+    { id: 1, name: 'Trash', icon:  <Delete/>}
+  ]
   return (
     <List>
-    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-      <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-        <ListItemButton
-          sx={{
-            minHeight: 48,
-            justifyContent: open ? 'initial' : 'center',
-            px: 2.5,
-          }}
-        >
-          <ListItemIcon
-            sx={{
-              minWidth: 0,
-              mr: open ? 3 : 'auto',
-              justifyContent: 'center',
-            }}
-          >
-            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-          </ListItemIcon>
-          <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-        </ListItemButton>
-      </ListItem>
-    ))}
+       {
+            NavList.map(list => (
+                <ListItem button key={list.id}>
+                    {/* <Link to={`${list.route}`} style={{ textDecoration: 'none', display: 'flex', color: 'inherit'}}> */}
+                        <ListItemIcon style={{ alignItems: 'center'}}>
+                            {list.icon}
+                        </ListItemIcon>
+                        <ListItemText primary={list.name} />
+                    {/* </Link> */}
+                </ListItem>
+            ))
+        }
   </List>
   )
 }

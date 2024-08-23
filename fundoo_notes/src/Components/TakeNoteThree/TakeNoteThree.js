@@ -1,0 +1,40 @@
+import {Card, CardActions, CardContent, Typography } from '@mui/material'
+import React from 'react';
+import { styled } from '@mui/material/styles';
+import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
+import IconButton from "@mui/material/IconButton";
+import { useContext } from 'react';
+import { DataContext } from '../../context/DataProvider';
+// import { getNotes } from '../Services/dataService';
+// import { getAllNotes } from '../Pages/dashboard';
+
+const StyledCard = styled(Card)`
+     width: 240px;
+     margin: 8px;
+     box-shadow: none;
+     border: 1px solid #e0e0e0;
+     border-radius: 8px;
+`
+
+export default function TakeNoteThree({ notes }) {
+    // const { getAllNotes } = useContext(DataContext);
+    
+  return (
+      <StyledCard>
+          <CardContent>
+              <Typography>{notes.title}</Typography>
+              <Typography>{notes.description}</Typography>
+          </CardContent>
+          <CardActions>
+              <Archive
+                  fontSize="small"
+                  style={{ marginLeft: 'auto'}}
+              />
+              <Delete
+              fontSize ="small"
+              />
+              <IconButton/>
+          </CardActions>
+    </StyledCard>
+  )
+}

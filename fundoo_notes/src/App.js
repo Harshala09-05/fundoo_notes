@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Register from './Pages/Register';
+
 import Login from './Pages/Login';
 import Router from './Routes/Router';
 import SignUp from './Pages/SignUp';
-import Dashboard from './Components/Dashboard';
+import Dashboard from './Pages/Dashboard';
+
 
 function App() {
   // const name = "Hello"
@@ -19,7 +20,9 @@ function App() {
 {/*     
       <Login></Login> */}
       {/* <SignUp/> */}
+      
       {/* <Dashboard/> */}
+    
     </div>
   );
 }
