@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, TextField, ClickAwayListener, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { v4 as uuid } from "uuid";
-import { createNotes } from "../../Services/dataService";
+import { createNotes,getNotes } from "../../Services/dataService";
 
 // import { DataContext } from "../../context/DataProvider";
 
@@ -25,13 +25,15 @@ const Container = styled(Box)`
 //   text: ''
 // }
 
-export default function TakeNoteTwo() {
+export default function TakeNoteTwo(props) {
+  const {getAllNotes} = props
   const [notes , setNotes] = useState({
     title: "",
     description: "",
     color: "",
     isArchived: false,
   });
+
 
   const onChangeHandler = (e) => {
     e.preventDefault();
@@ -57,10 +59,13 @@ export default function TakeNoteTwo() {
   //       }
 
   //   }
+  debugger
+
 
   const createNote = async () => {
     let response = await createNotes(notes);
     console.log("Repsonse", response);
+    response.status === 200 && getAllNotes();
   };
 
   return (

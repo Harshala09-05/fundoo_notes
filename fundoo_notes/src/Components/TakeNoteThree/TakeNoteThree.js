@@ -1,5 +1,5 @@
 import {Card, CardActions, CardContent, Typography } from '@mui/material'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
 import IconButton from "@mui/material/IconButton";
@@ -16,14 +16,18 @@ const StyledCard = styled(Card)`
      border-radius: 8px;
 `
 
-export default function TakeNoteThree({ notes }) {
+export default function TakeNoteThree(props) {
+    const { notes, displayNotes} =props
     // const { getAllNotes } = useContext(DataContext);
-    
+    // useEffect(()=>{
+    //     refreshNotes()
+    // console.log("notes",notes);
+    // }, [])
   return (
       <StyledCard>
           <CardContent>
-              <Typography>{notes.title}</Typography>
-              <Typography>{notes.description}</Typography>
+              <Typography>{displayNotes.title}</Typography>
+              <Typography>{displayNotes.description}</Typography>
           </CardContent>
           <CardActions>
               <Archive
