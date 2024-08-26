@@ -1,9 +1,12 @@
 import React from "react";
 import { Box, TextField, ClickAwayListener, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+// import image from '.\src\Assets\image.png';
 import { v4 as uuid } from "uuid";
-import { createNotes,getNotes } from "../../Services/dataService";
+import { createNotes, getNotes } from "../../Services/dataService";
+import {  DeleteOutlineOutlined as Delete } from '@mui/icons-material';
+import CardIcons from "../CardIcons";
 
 // import { DataContext } from "../../context/DataProvider";
 
@@ -66,6 +69,7 @@ export default function TakeNoteTwo(props) {
     let response = await createNotes(notes);
     console.log("Repsonse", response);
     response.status === 200 && getAllNotes();
+    // getAllNotes();
   };
 
   return (
@@ -93,7 +97,19 @@ export default function TakeNoteTwo(props) {
         name="description"
         value={notes.description}
       />
-      <Button onClick={createNote}>Cancel</Button>
+
+      {/* <image/> */}
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
+        <CardIcons />
+        <Button
+          variant="text"
+          onClick={createNote}
+          sx={{ width: '50px', height: '30px' }}
+        >
+          Close
+        </Button>
+      </Box>
+      {/* <Button onClick={createNote} width="10px" height='10px' >Cancel</Button> */}
     </Container>
     // </ClickAwayListener>
   );

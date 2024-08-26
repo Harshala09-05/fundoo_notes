@@ -1,25 +1,26 @@
 import {Card, CardActions, CardContent, Typography } from '@mui/material'
 import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
-import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
+import { UnarchiveOutlined as Unarchive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
 
 import IconButton from "@mui/material/IconButton";
 import { useContext } from 'react';
 import { DataContext } from '../../context/DataProvider';
 import CardIcons from '../CardIcons';
+import{archiveNote} from '../CardIcons'
 // import { getNotes } from '../Services/dataService';
 // import { getAllNotes } from '../Pages/dashboard';
 
 const StyledCard = styled(Card)`
-     width: 262px;
+     width: 240px;
      margin: 8px;
      box-shadow: none;
      border: 1px solid #e0e0e0;
      border-radius: 8px;
 `
 
-export default function TakeNoteThree(props) {
-    const { notes, displayNotes} =props
+export default function Archive({props}) {
+    const { notes, displayNotes,archiveNote} =props
     // const { getAllNotes } = useContext(DataContext);
     // useEffect(()=>{
     //     refreshNotes()
@@ -33,17 +34,17 @@ export default function TakeNoteThree(props) {
               <Typography>{displayNotes.description}</Typography>
           </CardContent>
           <CardActions>
-              {/* <Archive
+              <Unarchive
                   fontSize="small"
                   style={{ marginLeft: 'auto'}}
                   onClick={()=>archiveNote()}
               />
               <Delete
                   fontSize="small"
-                  onClick={()=>deleteNote()}
-              /> */}
+                //   onClick={()=>deleteNote()}
+              />
               <IconButton />
-              <CardIcons  sx={{ width:'2fw' }} noteId={displayNotes.id}/>
+              <CardIcons/>
           </CardActions>
     </StyledCard>
   )

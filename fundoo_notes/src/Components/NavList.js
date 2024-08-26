@@ -6,21 +6,27 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import {LightbulbOutlined as Lightbulb,ArchiveOutlined as Archive,DeleteOutlined as Delete} from '@mui/icons-material';
 import List from '@mui/material/List';
+import Archives from './archives/Archives';
+import DeleteNotes from './delete/DeleteNotes';
 // import { Link } from 'react-router-dom';
 
 
 
 export default function NavList({ open, handleDrawer }) {
-  const NavList = [
+  const [tab, setTab] = useState("Notes")
+  const navList = [
     { id: 1, name: 'Notes', icon: <Lightbulb /> },
-    { id: 1, name: 'Archive', icon: <Archive/> },
-    { id: 1, name: 'Trash', icon:  <Delete/>}
+    { id: 2, name: 'Archive', icon: <Archives/> },
+    { id: 3, name: 'Trash', icon:  <DeleteNotes/>}
   ]
+  selectTab = () => {
+    setTab()
+  }
   return (
     <List>
        {
-            NavList.map(list => (
-                <ListItem button key={list.id}>
+            navList.map(list => (
+                <ListItem button key={list.id}> // add onClick
                     {/* <Link to={`${list.route}`} style={{ textDecoration: 'none', display: 'flex', color: 'inherit'}}> */}
                         <ListItemIcon style={{ alignItems: 'center'}}>
                             {list.icon}

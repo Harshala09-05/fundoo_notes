@@ -11,7 +11,7 @@ import CardIcons from '../CardIcons';
 // import { getAllNotes } from '../Pages/dashboard';
 
 const StyledCard = styled(Card)`
-     width: 262px;
+     width: 240px;
      margin: 8px;
      box-shadow: none;
      border: 1px solid #e0e0e0;
@@ -43,7 +43,7 @@ export default function TakeNoteThree(props) {
                   onClick={()=>deleteNote()}
               /> */}
               <IconButton />
-              <CardIcons  sx={{ width:'2fw' }} noteId={displayNotes.id}/>
+              <CardIcons/>
           </CardActions>
     </StyledCard>
   )
