@@ -6,8 +6,9 @@ import { tab } from '../Components/NavList';
 import SwipeDrawer from "../Components/SwipeDrawer";
 import { getNotes } from "../Services/dataService";
 import TakeNoteThree from "../Components/TakeNoteThree/TakeNoteThree";
-export default function Dashboard({ tab }) {
+export default function Dashboard() {
   // const { tab } = props;
+  const [tab, setTab] = useState("Notes")
   const [displayNotes, setDisplayNotes] = useState([
     {
       title: "",
@@ -26,36 +27,44 @@ export default function Dashboard({ tab }) {
 
   const getAllNotes = async () => {
     let response = await getNotes();
-    // console.log(tab);
+    console.log(tab);
+    let data = response.data.data.data;
+    let filterData;
     if (tab === "Notes") {
-      let data = response.data.data.data.data.filter(
+      
+       filterData = data.filter(
         (val) => val.isArchived === false && val.isDeleted === false
       );
-      //  console.log(data)
-      setDisplayNotes(data);
-    } else if (tab === "Archive") {
-      let data = response.data.data.data.data.filter(
-        (val) => val.isArchived === true && val.isDeleted === false
-      );
-
-      setDisplayNotes(data);
-    } else if (tab === "Trash") {
-      let data = response.data.data.data.data.filter(
+      // console.log(data);
+      console.log(filterData);
+      setDisplayNotes(filterData);
+    }
+  
+  else if (tab === "Archive") {
+     filterData = data.filter(
+      (val) => val.isArchived === true && val.isDeleted === false
+    );
+    // console.log(data);
+    console.log(filterData);
+    setDisplayNotes(filterData);
+  }
+     else if (tab === "Trash") {
+     filterData = data.filter(
         (val) => val.isArchived === false && val.isDeleted === true
       );
-
-      setDisplayNotes(data);
+      console.log(filterData);
+      setDisplayNotes(filterData);
     } else {
       console.log("Not in list");
     }
-    setDisplayNotes(response.data);
-    console.log("Data", response);
+    setDisplayNotes(filterData);
+    console.log("Data", displayNotes);
   };
 
   return (
     <Box style={{ display: "flex", width: "100%" }}>
-      <SwipeDrawer />
-      <TakeNoteOne displayNotes={displayNotes} getAllNotes={getAllNotes} setNoteColor={setNoteColor} noteColor={noteColor} />
+      <SwipeDrawer tab={tab} setTab={setTab} />
+      <TakeNoteOne tab={tab} setTab={setTab} displayNotes={displayNotes} getAllNotes={getAllNotes} setNoteColor={setNoteColor} noteColor={noteColor} />
       {/* console.log(notes); */}
       {/* {notes.map((notes) => ( */}
       {/* <TakeNoteThree key={notes.id} notes={notes} refreshNotes={getAllNotes} /> */}

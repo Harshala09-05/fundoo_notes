@@ -46,7 +46,7 @@ export let deleteForever = async () => {
 }
 
 export let trashNotes = async (data) => {
-    console.log(data.noteIdList)
+    console.log(data)
     let trashedData = {
         noteIdList: data.noteIdList,
         isDeleted: data.isDeleted
@@ -61,6 +61,8 @@ export let updateColor = async (data) => {
         noteIdList: data.noteIdList,
         color:data.color
     }
+    console.log(colorData);
+    debugger
     let response = await axios.post(baseUrl + 'changesColorNotes',colorData,getHeaders())
     return response;
 }

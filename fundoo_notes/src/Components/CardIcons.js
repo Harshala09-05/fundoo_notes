@@ -30,6 +30,8 @@ export default function CardIcons(props) {
     await updateColor({ noteIdList: [noteId], color: color });
     setNoteColor(color)
     handleColorClose();
+//     console.log("Note ID List:", noteIdList);
+// console.log("Color:", selectColor);
   };
 
   const archiveNote = async () => {

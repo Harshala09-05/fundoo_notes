@@ -21,13 +21,8 @@ const StyledCard = styled(Card)`
 export default function TakeNoteThree(props) {
     const { notes, displayNotes, noteId, updateColor,setNoteColor,noteColor } = props
      // Default color is white
-
-  const handleSelectColor = async (noteIdList, color) => {
-
-      setNoteColor(color); 
-      await updateColor({ noteIdList: [noteId], color: color }); 
-        
-    };
+    console.log("t3--------------------------------->>>>", displayNotes
+    );
     
     // useEffect(() => {
     //     console.log("color",noteColor)

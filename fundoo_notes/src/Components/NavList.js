@@ -13,15 +13,16 @@ import { useState,useEffect} from "react";
 
 
 
-export default function NavList({ open, handleDrawer }) {
-  const [tab, setTab] = useState("Notes")
+export default function NavList(props) {
+  const { open, handleDrawer, tab, setTab}=props
+  // const [tab, setTab] = useState("Notes")
   const navList = [
     { id: 1, name: 'Notes', icon: <Lightbulb />,route:'/dashboard' },
     { id: 2, name: 'Archive', icon: <Archive/> ,route:'/archive'},
     { id: 3, name: 'Trash', icon:  <Delete/>,route:'/trash'}
   ]
   let selectTab = (name, event, list) => {
-    console.log(tab)
+    // console.log(tab)
     setTab(name);
     // console.log(`${name}`);
     // if (event.key === list.name) {

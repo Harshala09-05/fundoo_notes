@@ -20,18 +20,18 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 export default function TakeNoteOne(props) {
   const { displayNotes,getAllNotes ,tab,name, setNoteColor,noteColor} = props;
-
+console.log("data in t3--------",displayNotes);
   return (
     <Box sx={{ display: "flex" }}>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <TakeNoteTwo getAllNotes={getAllNotes} />
-        {name === 'Notes' && <TakeNoteTwo getAllNotes={getAllNotes} />}
+        {/* <TakeNoteTwo getAllNotes={getAllNotes} /> */}
+        {tab === 'Notes' && <TakeNoteTwo getAllNotes={getAllNotes} />}
 
-        {displayNotes?.data?.data?.length > 0 ? (
+        {displayNotes?.length > 0 ? (
           <Grid container style={{ marginTop: 16 }}>
           
-            {displayNotes.data.data.map((notes) => (
+            {displayNotes.map((notes) => (
               <TakeNoteThree
                 key={notes.id}
                 notes={notes}
