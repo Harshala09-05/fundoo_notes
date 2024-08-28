@@ -29,8 +29,10 @@ const Container = styled(Box)`
 // }
 
 export default function TakeNoteTwo(props) {
-  const {getAllNotes} = props
-  const [notes , setNotes] = useState({
+  const { getAllNotes } = props
+  const [showTextField, setShowTextField] = useState(false);
+  const [addNote,setAddNote]= useState({})
+  const [notes, setNotes] = useState({
     title: "",
     description: "",
     color: "",
@@ -46,71 +48,75 @@ export default function TakeNoteTwo(props) {
     });
   };
 
-  //   const onTextAreaClick = () => {
-  //     setShowTextField(true);
-  //     containerRef.current.style.minHeight = '70px'
-  //   };
-
-  //     const handleClickAway = () => {
-  //       setShowTextField(false);
-  //       containerRef.current.style.minHeight = '30px'
-  //       setAddNote({ ...note, id: uuid() });
-
-  //       if (addNote.heading || addNote.text) {
-  //         setNotes(prevArr => [addNote, ...prevArr]);
-  //         console.log(notes);
-  //       }
-
-  //   }
-  debugger
-
-
-  const createNote = async () => {
-    let response = await createNotes(notes);
-    console.log("Repsonse", response);
-    response.status === 200 && getAllNotes();
-    // getAllNotes();
+  const onTextAreaClick = () => {
+    setShowTextField(true);
+    // containerRef.current.style.minHeight = '70px'
   };
 
-  return (
-    // <ClickAwayListener onClickAway={handleClickAway}>
-    <Container>
-      <TextField
-        placeholder="Title"
-        id="title"
-        variant="standard"
-        InputProps={{ disableUnderline: true }}
-        style={{ marginBottom: 10 }}
-        onChange={(e) => onChangeHandler(e)}
-        name="title"
-        value={notes.title}
-      />
+  const handleClickAway = () => {
+    setShowTextField(false);
+  
+    // containerRef.current.style.minHeight = '30px'
+    // setAddNote({ ...note, id: uuid() });
 
-      <TextField
-        placeholder="Take a note..."
-        multiline
-        maxRows={Infinity}
-        variant="standard"
-        id="description"
-        InputProps={{ disableUnderline: true }}
-        onChange={(e) => onChangeHandler(e)}
-        name="description"
-        value={notes.description}
-      />
+        if (addNote.tile || addNote.description) {
+          setNotes(prevArr => [addNote, ...prevArr]);
+          console.log(notes);
+        }
 
-      {/* <image/> */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
-        <CardIcons />
-        <Button
-          variant="text"
-          onClick={createNote}
-          sx={{ width: '50px', height: '30px' }}
-        >
-          Close
-        </Button>
-      </Box>
-      {/* <Button onClick={createNote} width="10px" height='10px' >Cancel</Button> */}
-    </Container>
-    // </ClickAwayListener>
-  );
-}
+    }
+    debugger
+
+
+    const createNote = async () => {
+      let response = await createNotes(notes);
+      console.log("Repsonse", response);
+      response.status === 200 && getAllNotes();
+      // getAllNotes();
+    };
+
+    return (
+      <ClickAwayListener onClickAway={handleClickAway}>
+        <Container>
+          {showTextField &&
+            <TextField
+              placeholder="Title"
+              id="title"
+              variant="standard"
+              InputProps={{ disableUnderline: true }}
+              style={{ marginBottom: 10 }}
+              onChange={(e) => onChangeHandler(e)}
+              name="title"
+              value={notes.title}
+            />
+          }
+          <TextField
+            placeholder="Take a note..."
+            multiline
+            maxRows={Infinity}
+            variant="standard"
+            id="description"
+            InputProps={{ disableUnderline: true }}
+            onChange={(e) => onChangeHandler(e)}
+            name="description"
+            value={notes.description}
+            onClick={onTextAreaClick}
+          />
+
+          {/* <image/> */}
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
+            <CardIcons />
+            <Button
+              variant="text"
+              onClick={createNote}
+              sx={{ width: '50px', height: '30px' }}
+            >
+              Close
+            </Button>
+          </Box>
+          {/* <Button onClick={createNote} width="10px" height='10px' >Cancel</Button> */}
+        </Container>
+      </ClickAwayListener>
+    );
+  }
+

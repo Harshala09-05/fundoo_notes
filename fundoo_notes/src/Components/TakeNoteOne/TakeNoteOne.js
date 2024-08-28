@@ -9,6 +9,7 @@ import TakeNoteTwo from "../TakeNoteTwo/TakeNoteTwo";
 import TakeNoteThree from "../TakeNoteThree/TakeNoteThree";
 import { createNotes } from "../../Services/dataService";
 import EmptyNotes from "../Notes/EmptyNotes";
+import NavList from "../NavList";
 // import Note from './Note';
 // import EmptyNotes from './EmptyNotes';
 
@@ -18,13 +19,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 export default function TakeNoteOne(props) {
-  const { displayNotes,getAllNotes } = props;
+  const { displayNotes,getAllNotes ,tab,name, setNoteColor,noteColor} = props;
 
   return (
     <Box sx={{ display: "flex" }}>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {tab === 'Notes' && <TakeNoteTwo getAllNotes={getAllNotes} />}
+        <TakeNoteTwo getAllNotes={getAllNotes} />
+        {name === 'Notes' && <TakeNoteTwo getAllNotes={getAllNotes} />}
 
         {displayNotes?.data?.data?.length > 0 ? (
           <Grid container style={{ marginTop: 16 }}>
@@ -34,6 +36,8 @@ export default function TakeNoteOne(props) {
                 key={notes.id}
                 notes={notes}
                 displayNotes={notes}
+                setNoteColor={setNoteColor}
+                noteColor={noteColor}
               />
             ))}
           </Grid>

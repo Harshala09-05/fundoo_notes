@@ -16,8 +16,8 @@ export default function Router(){
             <Route exact path='/' element={<AuthRoute><Login/></AuthRoute>}/>
         <Route path='/signup' element={<AuthRoute><SignUp /></AuthRoute>} />
         <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-        <Route path='/archive' element={<Archives/>} />
-        <Route path='/delete' element={<DeleteNotes/>} />
+        <Route path='/archive' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path='/trash' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             </Routes>
     </BrowserRouter>
   )

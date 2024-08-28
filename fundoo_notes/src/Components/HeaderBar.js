@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import { AppBar,Toolbar,Typography,IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import ListItemText from '@mui/material/ListItemText';
 
 
 
@@ -17,7 +18,9 @@ const Heading = styled(Typography)`
     margin-left:25px;
 `;
 
-export default function HeaderBar({ open, handleDrawer }) {
+
+
+export default function HeaderBar({ open, handleDrawer,handleTitleUpdate,name }) {
     const logo = 'https://seeklogo.com/images/G/google-keep-logo-0BC92EBBBD-seeklogo.com.png';
   return (
     <Header  open={open}>
@@ -29,7 +32,8 @@ export default function HeaderBar({ open, handleDrawer }) {
         >
           <MenuIcon />
               </IconButton>
-        <img src={logo} alt="logo" style={{ width: 27, height: 50 , marginTop: 1 }}></img>
+        <img src={logo} alt="logo" style={{ width: 27, height: 50, marginTop: 1 }}></img>
+        <ListItemText onClick={() => handleTitleUpdate(name)}/>
         <Heading>
           Keep
         </Heading>
