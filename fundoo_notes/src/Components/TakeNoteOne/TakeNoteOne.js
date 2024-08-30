@@ -19,7 +19,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 export default function TakeNoteOne(props) {
-  const { displayNotes,getAllNotes ,tab,name, setNoteColor,noteColor} = props;
+  const { displayNotes,getAllNotes ,tab,name, setNoteColor,noteColor,toggleView,hide} = props;
 console.log("data in t3--------",displayNotes);
   return (
     <Box sx={{ display: "flex" }}>
@@ -38,6 +38,8 @@ console.log("data in t3--------",displayNotes);
                 displayNotes={notes}
                 setNoteColor={setNoteColor}
                 noteColor={noteColor}
+                tab={tab}
+                toggleView={toggleView} hide={hide}
               />
             ))}
           </Grid>

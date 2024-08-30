@@ -39,9 +39,13 @@ export let archieveList = async () => {
     return response;
 }
 
-export let deleteForever = async () => {
+export let deleteForever = async (data) => {
     // console.log()
-    let response = await axios.post(baseUrl + "deleteForeverNotes",getHeaders())
+    let deleteForeverData = {
+        noteIdList: data.noteIdList,
+        isDeleted: data.isDeleted
+    }
+    let response = await axios.post(baseUrl + "deleteForeverNotes",deleteForeverData,getHeaders())
     return response;
 }
 

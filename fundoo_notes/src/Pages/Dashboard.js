@@ -8,6 +8,7 @@ import { getNotes } from "../Services/dataService";
 import TakeNoteThree from "../Components/TakeNoteThree/TakeNoteThree";
 export default function Dashboard() {
   // const { tab } = props;
+  const [hide, setHide] = useState(true);
   const [tab, setTab] = useState("Notes")
   const [displayNotes, setDisplayNotes] = useState([
     {
@@ -18,7 +19,9 @@ export default function Dashboard() {
       isDeleted: false,
     },
   ]);
-
+  const toggleView = (hide) => {
+    setHide(!hide);
+ }
   const [noteColor, setNoteColor] = useState("");
   useEffect(() => {
     getAllNotes();
@@ -63,8 +66,8 @@ export default function Dashboard() {
 
   return (
     <Box style={{ display: "flex", width: "100%" }}>
-      <SwipeDrawer tab={tab} setTab={setTab} />
-      <TakeNoteOne tab={tab} setTab={setTab} displayNotes={displayNotes} getAllNotes={getAllNotes} setNoteColor={setNoteColor} noteColor={noteColor} />
+      <SwipeDrawer tab={tab} setTab={setTab} toggleView={toggleView} />
+      <TakeNoteOne tab={tab} setTab={setTab} displayNotes={displayNotes} getAllNotes={getAllNotes} setNoteColor={setNoteColor} noteColor={noteColor} toggleView={toggleView} hide={hide} />
       {/* console.log(notes); */}
       {/* {notes.map((notes) => ( */}
       {/* <TakeNoteThree key={notes.id} notes={notes} refreshNotes={getAllNotes} /> */}

@@ -53,7 +53,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 function SwipeDrawer(props) {
-    const {tab ,setTab}=props
+    const {tab ,setTab,toggleView}=props
     const theme = useTheme();
     const [open, setOpen] = React.useState(true);
 
@@ -66,6 +66,7 @@ function SwipeDrawer(props) {
             <HeaderBar
                 open={open}
                 handleDrawer={handleDrawer}
+                toggleView={toggleView}
             />
             <Drawer variant="permanent" open={open}>
                 <DrawerHeader></DrawerHeader>

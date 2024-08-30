@@ -4,12 +4,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import {LightbulbOutlined as Lightbulb,ArchiveOutlined as Archive,DeleteOutlined as Delete} from '@mui/icons-material';
+import { LightbulbOutlined as Lightbulb, ArchiveOutlined as Archive, DeleteOutlined as Delete } from '@mui/icons-material';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import List from '@mui/material/List';
 import Archives from './archives/Archives';
 import DeleteNotes from './delete/DeleteNotes';
 import { useState,useEffect} from "react";
-// import { Link } from 'react-router-dom';
+import { Link ,Outlet} from 'react-router-dom';
 
 
 
@@ -18,8 +19,9 @@ export default function NavList(props) {
   // const [tab, setTab] = useState("Notes")
   const navList = [
     { id: 1, name: 'Notes', icon: <Lightbulb />,route:'/dashboard' },
-    { id: 2, name: 'Archive', icon: <Archive/> ,route:'/archive'},
-    { id: 3, name: 'Trash', icon:  <Delete/>,route:'/trash'}
+    { id: 2, name: 'Archive', icon: <Archive/> ,route:'/dashboard/archive'},
+    { id: 3, name: 'Trash', icon: <Delete />, route: '/dashboard/trash' },
+    { id: 4, name: 'Edit Labels', icon: <EditOutlinedIcon/>, route: '/dashboard'}
   ]
   let selectTab = (name, event, list) => {
     // console.log(tab)
@@ -47,12 +49,13 @@ export default function NavList(props) {
        {
             navList.map(list => (
               <ListItem button key={list.name} to={list.route} onClick={()=>selectTab(list.name)} >
-                    {/* <Link to={`${list.route}`} style={{ textDecoration: 'none', display: 'flex', color: 'inherit'}}> */}
+                    <Link to={`${list.route}`} style={{ textDecoration: 'none', display: 'flex', color: 'inherit'}}>
                         <ListItemIcon style={{ alignItems: 'center'}}>
                             {list.icon}
                         </ListItemIcon>
                         <ListItemText primary={list.name} onClick={() => handleTitleUpdate(list.name)} />
-                    {/* </Link> */}
+                    </Link>
+                    <Outlet />
                 </ListItem>
             ))
         }

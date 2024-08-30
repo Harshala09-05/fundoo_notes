@@ -1,4 +1,4 @@
-import {Card, CardActions, CardContent, Typography } from '@mui/material'
+import {Card, CardActions, CardContent, Typography,Grid } from '@mui/material'
 import React, { useEffect ,useState} from 'react';
 import { styled } from '@mui/material/styles';
 import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
@@ -19,10 +19,10 @@ const StyledCard = styled(Card)`
 `
 
 export default function TakeNoteThree(props) {
-    const { notes, displayNotes, noteId, updateColor,setNoteColor,noteColor } = props
+    const { notes, displayNotes, noteId, updateColor,setNoteColor,noteColor,toggleView,hide,tab } = props
      // Default color is white
-    console.log("t3--------------------------------->>>>", displayNotes
-    );
+    // console.log("t3--------------------------------->>>>", displayNotes
+    // );
     
     // useEffect(() => {
     //     console.log("color",noteColor)
@@ -38,24 +38,42 @@ export default function TakeNoteThree(props) {
     // }, [])
     
   return (
-      <StyledCard style={{backgroundColor: `${displayNotes.color}`}}>
-          <CardContent>
-              <Typography>{displayNotes.title}</Typography>
-              <Typography>{displayNotes.description}</Typography>
-          </CardContent>
-          <CardActions>
-              {/* <Archive
-                  fontSize="small"
-                  style={{ marginLeft: 'auto'}}
-                  onClick={()=>archiveNote()}
-              />
-              <Delete
-                  fontSize="small"
-                  onClick={()=>deleteNote()}
-              /> */}
-              <IconButton />
-              <CardIcons  sx={{ width:'2fw' }} noteId={displayNotes.id} setNoteColor={setNoteColor}/>
-          </CardActions>
-    </StyledCard>
+    //   <StyledCard style={{backgroundColor: `${displayNotes.color}`}}>
+    //       <CardContent>
+    //           <Typography>{displayNotes.title}</Typography>
+    //           <Typography>{displayNotes.description}</Typography>
+    //       </CardContent>
+    //       <CardActions>
+    //           {/* <Archive
+    //               fontSize="small"
+    //               style={{ marginLeft: 'auto'}}
+    //               onClick={()=>archiveNote()}
+    //           />
+    //           <Delete
+    //               fontSize="small"
+    //               onClick={()=>deleteNote()}
+    //           /> */}
+    //           <IconButton />
+    //           <CardIcons  sx={{ width:'2fw' }} noteId={displayNotes.id} setNoteColor={setNoteColor}/>
+    //       </CardActions>
+    // </StyledCard>
+
+
+
+<Grid item xs={hide ? 12 : 4} key={notes.id}>
+<StyledCard style={{ backgroundColor: `${notes.color}`}}>
+<CardContent>
+ <Typography variant="h6">{notes.title}</Typography>
+ <Typography variant="body1">{notes.description}</Typography>
+</CardContent>
+<CardActions>
+ <IconButton />
+ <CardIcons noteId={notes.id} setNoteColor={setNoteColor} tab={tab} isArchived={notes.isArchived} isDeleted={notes.isDeleted}  />
+</CardActions>
+</StyledCard>
+</Grid>
+
+
+
   )
 }
