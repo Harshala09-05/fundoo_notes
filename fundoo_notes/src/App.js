@@ -5,6 +5,7 @@ import Login from './Pages/Login';
 import Router from './Routes/Router';
 import SignUp from './Pages/SignUp';
 import Dashboard from './Pages/Dashboard';
+import EditLabel from './Components/EditLabel';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   
     <div className="App">
       <Router/>
+      
 {/*     
       <Login></Login> */}
       {/* <SignUp/> */}

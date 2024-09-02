@@ -70,3 +70,16 @@ export let updateColor = async (data) => {
     let response = await axios.post(baseUrl + 'changesColorNotes',colorData,getHeaders())
     return response;
 }
+
+export let updateNotes = async (data) => {
+    console.log(data);
+    console.log(data.id);
+    let updateNoteData = {
+        noteId: data.id,
+        title: data.title,
+        description:data.description
+    }
+    let response = await axios.post(baseUrl + 'updateNotes', updateNoteData, getHeaders())
+    
+    return response;
+}

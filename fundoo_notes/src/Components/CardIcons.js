@@ -56,7 +56,7 @@ export default function CardIcons(props) {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "start", marginTop: "8px", marginRight: "40px", width: "20vw" }}>
+    <div style={{ display: "flex", justifyContent: "start", marginTop: "8px", marginRight: "40px", width: "20vw" ,marginLeft: '-7px'}}>
       <IconButton style={{ color: "#424242", marginRight: "10px" }}>
         <AddAlertOutlinedIcon />
       </IconButton>

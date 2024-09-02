@@ -8,6 +8,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Archives from '../Components/archives/Archives';
 import DeleteNotes from '../Components/delete/DeleteNotes';
 import { SendAndArchiveSharp } from '@mui/icons-material';
+import ForgotPassword from '../Pages/ForgotPassword';
 
 export default function Router(){
   return (
@@ -15,6 +16,7 @@ export default function Router(){
         <Routes>
         <Route path="/" element={<AuthRoute><Login /></AuthRoute>} />
         <Route path="/signup" element={<AuthRoute><SignUp /></AuthRoute>} />
+        <Route path='/forgotpassword' element={<AuthRoute><ForgotPassword/></AuthRoute>} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
           <Route path="archive" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="trash" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

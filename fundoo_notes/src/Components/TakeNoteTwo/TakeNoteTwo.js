@@ -29,15 +29,15 @@ const Container = styled(Box)`
 // }
 
 export default function TakeNoteTwo(props) {
-  const { getAllNotes } = props
+  const { getAllNotes,notes,setNotes } = props
   const [showTextField, setShowTextField] = useState(false);
   const [addNote,setAddNote]= useState({})
-  const [notes, setNotes] = useState({
-    title: "",
-    description: "",
-    color: "",
-    isArchived: false,
-  });
+  // const [notes, setNotes] = useState({
+  //   title: "",
+  //   description: "",
+  //   color: "",
+  //   isArchived: false,
+  // });
 
 
   const onChangeHandler = (e) => {
@@ -65,7 +65,7 @@ export default function TakeNoteTwo(props) {
         }
 
     }
-    debugger
+  
 
 
     const createNote = async () => {
