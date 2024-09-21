@@ -39,9 +39,12 @@
 .title{
     font-size: 24px;
     margin-bottom: 20px;
+    
 }
 .Logo{
     color: #4285f4;
+    margin-top: 10px;
+    margin-right: 7vw;
 }
 .Input1 , Input2{
     margin-bottom: 15px;
@@ -107,4 +110,7 @@ img{
 }
 p{
     font-size: 12px;
+}
+h4{
+   
 }

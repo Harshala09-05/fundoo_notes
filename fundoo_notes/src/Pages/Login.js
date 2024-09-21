@@ -104,10 +104,11 @@ export default function Login() {
                 required
                 id="outlined-required"
                 label="Email or phone"
+                size='small'
                 placeholder="Email or phone*"
                 onChange={handleChange}
                 name="email"
-                value={userDetail.email}
+                // value={userDetail.email}
               />
             </div>
             <div className="text">
@@ -118,12 +119,13 @@ export default function Login() {
                 }
                 required
                 id="outlined-required"
+                size='small'
                 label="Password"
                 placeholder="Password*"
                 type="password"
                 onChange={handleChange}
                 name="password"
-                value={userDetail.password}
+                // value={userDetail.password}
               />
             </div>
             <Grid item sx={{padding:{xs:0,sm:'15px 30px'},display:'flex',justifyContent:'flex-start'}}>
